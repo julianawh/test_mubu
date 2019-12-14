@@ -1,0 +1,168 @@
+config:
+    name: create doc
+    #解决(Caused by SSLError(SSLError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:833)'),)
+    verify: False
+    base_url: https://mubu.com
+    export:
+        - document_id
+        - memberId
+        - user_id
+
+teststeps:
+-   name: login system
+    testcase: testcases/login.yml
+-   name: /api/list/create_doc
+    request:
+        data:
+            folderId: '0'
+            type: '0'
+        headers:
+            Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: POST
+        url: /api/list/create_doc
+    extract:
+        document_id: content.data.id
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - null
+-   name: /doc$document_id
+    request:
+        headers:
+            Sec-Fetch-Mode: navigate
+            Sec-Fetch-Site: same-origin
+            Sec-Fetch-User: ?1
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+        method: GET
+        url: /doc$document_id
+    extract:
+        memberId: "memberId: '(.*)'"
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - text/html;charset=UTF-8
+-   name: /api/document/get
+    request:
+        data:
+            docId: $document_id
+        headers:
+            Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: POST
+        url: /api/document/get
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - Success
+-   name: /api/user/current_level
+    request:
+        data: ''
+        headers:
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: POST
+        params:
+            document_id: $document_id
+        url: /api/user/current_level
+    extract:
+      user_id: content.data.id
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - Success
+    -   eq:
+        - content.data.level
+        - 1
+-   name: /api/ticket/register
+    request:
+        headers:
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: GET
+        url: /api/ticket/register
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - Success
+-   name: /api/middleware/members
+    request:
+        headers:
+            Request-Id: members:$memberId:1572769003132
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: GET
+        params:
+            documentId: $document_id
+            memberId: $memberId
+        url: /api/middleware/members
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - success

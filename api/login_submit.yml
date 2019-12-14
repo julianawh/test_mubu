@@ -1,0 +1,12 @@
+name: /api/login/submit
+variables:
+    password: $password
+    phone: $phone
+request:
+    data:
+        password: $password
+        phone: $phone
+        remember: 'true'
+    method: POST
+    url: /api/login/submit
+    headers: ${get_headers()}

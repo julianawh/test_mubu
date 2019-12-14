@@ -1,0 +1,119 @@
+config:
+    name: login system
+    variables:
+      phone: ${ENV(PHONE)}
+      password: ${ENV(PASSWORD)}
+    #解决(Caused by SSLError(SSLError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:833)'),)
+    verify: False
+    base_url: https://mubu.com
+
+teststeps:
+-   name: login submit
+    api: api/login_submit.yml
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - null
+-   name: /list
+    request:
+        headers:
+            Sec-Fetch-Mode: navigate
+            Sec-Fetch-Site: same-origin
+            Sec-Fetch-User: ?1
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+        method: GET
+        url: /list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - text/html;charset=UTF-8
+-   name: /api/list/tip_new_update
+    request:
+        data: ''
+        headers:
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: POST
+        url: /api/list/tip_new_update
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - null
+-   name: /api/list/get
+    request:
+        data:
+            folderId: '0'
+            keywords: ''
+            sort: time
+            source: ''
+        headers:
+            Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: POST
+        url: /api/list/get
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - null
+-   name: /api/message/get_message_unread
+    request:
+        data: ''
+        headers:
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: POST
+        url: /api/message/get_message_unread
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - null

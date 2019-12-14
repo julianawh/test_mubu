@@ -1,0 +1,827 @@
+{
+    "config": {
+        "name": "testcase description",
+        "variables": {}
+    },
+    "teststeps": [
+        {
+            "name": "/api/login/submit",
+            "request": {
+                "url": "https://mubu.com/api/login/submit",
+                "method": "POST",
+                "headers": {
+                    "X-Requested-With": "XMLHttpRequest",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors"
+                },
+                "data": {
+                    "phone": "18816966156",
+                    "password": "hua191011",
+                    "remember": "true"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        null
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/list",
+            "request": {
+                "url": "https://mubu.com/list",
+                "method": "GET",
+                "headers": {
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Sec-Fetch-User": "?1",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "navigate"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "text/html;charset=UTF-8"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/list/tip_new_update",
+            "request": {
+                "url": "https://mubu.com/api/list/tip_new_update",
+                "method": "POST",
+                "headers": {
+                    "X-Requested-With": "XMLHttpRequest",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors"
+                },
+                "data": ""
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        null
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/list/get",
+            "request": {
+                "url": "https://mubu.com/api/list/get",
+                "method": "POST",
+                "headers": {
+                    "X-Requested-With": "XMLHttpRequest",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors"
+                },
+                "data": {
+                    "folderId": "0",
+                    "sort": "time",
+                    "keywords": "",
+                    "source": ""
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        null
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/message/get_message_unread",
+            "request": {
+                "url": "https://mubu.com/api/message/get_message_unread",
+                "method": "POST",
+                "headers": {
+                    "X-Requested-With": "XMLHttpRequest",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors"
+                },
+                "data": ""
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        null
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/list/create_doc",
+            "request": {
+                "url": "https://mubu.com/api/list/create_doc",
+                "method": "POST",
+                "headers": {
+                    "X-Requested-With": "XMLHttpRequest",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors"
+                },
+                "data": {
+                    "folderId": "0",
+                    "type": "0"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        null
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/doc5wt4DDO1Yor",
+            "request": {
+                "url": "https://mubu.com/doc5wt4DDO1Yor",
+                "method": "GET",
+                "headers": {
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Sec-Fetch-User": "?1",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "navigate"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "text/html;charset=UTF-8"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/document/get",
+            "request": {
+                "url": "https://mubu.com/api/document/get",
+                "method": "POST",
+                "headers": {
+                    "X-Requested-With": "XMLHttpRequest",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors"
+                },
+                "data": {
+                    "docId": "5wt4DDO1Yor"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        "Success"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/user/current_level",
+            "request": {
+                "url": "https://mubu.com/api/user/current_level",
+                "params": {
+                    "document_id": "5wt4DDO1Yor"
+                },
+                "method": "POST",
+                "headers": {
+                    "X-Requested-With": "XMLHttpRequest",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors"
+                },
+                "data": ""
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        "Success"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/ticket/register",
+            "request": {
+                "url": "https://mubu.com/api/ticket/register",
+                "method": "GET",
+                "headers": {
+                    "X-Requested-With": "XMLHttpRequest",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        "Success"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/middleware/members",
+            "request": {
+                "url": "https://mubu.com/api/middleware/members",
+                "params": {
+                    "memberId": "4838691",
+                    "documentId": "5wt4DDO1Yor"
+                },
+                "method": "GET",
+                "headers": {
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Request-Id": "members:4838691:1572769003132",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        "success"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/middleware/message",
+            "request": {
+                "url": "https://mubu.com/api/middleware/message",
+                "method": "POST",
+                "headers": {
+                    "Member-Id": "4838691",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Content-Type": "application/json; charset=UTF-8",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Request-Id": "MESSAGE:4725915:4838691:8",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors"
+                },
+                "json": {
+                    "engineType": "MUBU",
+                    "messageType": "BROADCAST",
+                    "reqId": 8,
+                    "requestId": "MESSAGE:4725915:4838691:8",
+                    "token": "5wt4DDO1Yor",
+                    "data": {
+                        "message": {
+                            "type": "CHANGE",
+                            "documentId": "5wt4DDO1Yor",
+                            "version": 3,
+                            "content": [
+                                {
+                                    "name": "nameChanged",
+                                    "title": "demo"
+                                }
+                            ]
+                        }
+                    },
+                    "context": {
+                        "os": "macOS",
+                        "osVersion": "10.14.0",
+                        "appVersion": "0",
+                        "platform": "web"
+                    }
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        "success"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/middleware/message",
+            "request": {
+                "url": "https://mubu.com/api/middleware/message",
+                "method": "POST",
+                "headers": {
+                    "Member-Id": "4838691",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Content-Type": "application/json; charset=UTF-8",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Request-Id": "MESSAGE:4725915:4838691:10",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors"
+                },
+                "json": {
+                    "engineType": "MUBU",
+                    "messageType": "BROADCAST",
+                    "reqId": 10,
+                    "requestId": "MESSAGE:4725915:4838691:10",
+                    "token": "5wt4DDO1Yor",
+                    "data": {
+                        "message": {
+                            "type": "CHANGE",
+                            "documentId": "5wt4DDO1Yor",
+                            "version": 4,
+                            "content": [
+                                {
+                                    "name": "create",
+                                    "created": [
+                                        {
+                                            "node": {
+                                                "id": "12a16e30568e9502a",
+                                                "text": "",
+                                                "modified": 1572769009301
+                                            },
+                                            "parentId": null,
+                                            "index": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "context": {
+                        "os": "macOS",
+                        "osVersion": "10.14.0",
+                        "appVersion": "0",
+                        "platform": "web"
+                    }
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        "success"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/middleware/message",
+            "request": {
+                "url": "https://mubu.com/api/middleware/message",
+                "method": "POST",
+                "headers": {
+                    "Member-Id": "4838691",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Content-Type": "application/json; charset=UTF-8",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Request-Id": "MESSAGE:4725915:4838691:20",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors"
+                },
+                "json": {
+                    "engineType": "MUBU",
+                    "messageType": "BROADCAST",
+                    "reqId": 20,
+                    "requestId": "MESSAGE:4725915:4838691:20",
+                    "token": "5wt4DDO1Yor",
+                    "data": {
+                        "message": {
+                            "type": "CHANGE",
+                            "documentId": "5wt4DDO1Yor",
+                            "version": 9,
+                            "content": [
+                                {
+                                    "name": "update",
+                                    "updated": [
+                                        {
+                                            "updated": {
+                                                "id": "12a16e30568e9502a",
+                                                "text": "lian1"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "context": {
+                        "os": "macOS",
+                        "osVersion": "10.14.0",
+                        "appVersion": "0",
+                        "platform": "web"
+                    }
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        "success"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/middleware/message",
+            "request": {
+                "url": "https://mubu.com/api/middleware/message",
+                "method": "POST",
+                "headers": {
+                    "Member-Id": "4838691",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Content-Type": "application/json; charset=UTF-8",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Request-Id": "MESSAGE:4725915:4838691:21",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors"
+                },
+                "json": {
+                    "engineType": "MUBU",
+                    "messageType": "BROADCAST",
+                    "reqId": 21,
+                    "requestId": "MESSAGE:4725915:4838691:21",
+                    "token": "5wt4DDO1Yor",
+                    "data": {
+                        "message": {
+                            "type": "CHANGE",
+                            "documentId": "5wt4DDO1Yor",
+                            "version": 10,
+                            "content": [
+                                {
+                                    "name": "create",
+                                    "created": [
+                                        {
+                                            "node": {
+                                                "id": "f716e30569b78168",
+                                                "text": "",
+                                                "modified": 1572769012600
+                                            },
+                                            "parentId": null,
+                                            "index": 1
+                                        }
+                                    ],
+                                    "cursor": {
+                                        "id": "12a16e30568e9502a",
+                                        "position": {
+                                            "start": 0,
+                                            "end": 0
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "context": {
+                        "os": "macOS",
+                        "osVersion": "10.14.0",
+                        "appVersion": "0",
+                        "platform": "web"
+                    }
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        "success"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/middleware/message",
+            "request": {
+                "url": "https://mubu.com/api/middleware/message",
+                "method": "POST",
+                "headers": {
+                    "Member-Id": "4838691",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                    "Content-Type": "application/json; charset=UTF-8",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "Request-Id": "MESSAGE:4725915:4838691:31",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Sec-Fetch-Mode": "cors"
+                },
+                "json": {
+                    "engineType": "MUBU",
+                    "messageType": "BROADCAST",
+                    "reqId": 31,
+                    "requestId": "MESSAGE:4725915:4838691:31",
+                    "token": "5wt4DDO1Yor",
+                    "data": {
+                        "message": {
+                            "type": "CHANGE",
+                            "documentId": "5wt4DDO1Yor",
+                            "version": 15,
+                            "content": [
+                                {
+                                    "name": "update",
+                                    "updated": [
+                                        {
+                                            "updated": {
+                                                "id": "f716e30569b78168",
+                                                "text": "lian2"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "context": {
+                        "os": "macOS",
+                        "osVersion": "10.14.0",
+                        "appVersion": "0",
+                        "platform": "web"
+                    }
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msg",
+                        "success"
+                    ]
+                }
+            ]
+        }
+    ]
+}

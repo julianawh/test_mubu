@@ -1,0 +1,14 @@
+
+name: demo api
+variables:
+    phone: '18816966156'
+    password: hua191011
+request:
+    url: /api/path/$var1
+    method: POST
+    headers:
+        Content-Type: "application/json"
+    json:
+        key: $var2
+validate:
+    - eq: ["status_code", 200]

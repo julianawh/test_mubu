@@ -1,0 +1,16 @@
+config:
+    name: mubu system test
+
+testcases:
+-
+    name: set_doc_title
+    testcase: testcases/set_doc_title.yml
+-
+    name: login_testcase
+    testcase: testcases/login.yml
+
+-
+    name: create doc
+    testcase: testcases/create_doc.yml
+
+

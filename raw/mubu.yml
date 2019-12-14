@@ -1,0 +1,520 @@
+config:
+    name: testcase description
+    variables: {}
+teststeps:
+-   name: /api/login/submit
+    request:
+        data:
+            password: hua191011
+            phone: '18816966156'
+            remember: 'true'
+        headers:
+            Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: POST
+        url: https://mubu.com/api/login/submit
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - null
+-   name: /list
+    request:
+        headers:
+            Sec-Fetch-Mode: navigate
+            Sec-Fetch-Site: same-origin
+            Sec-Fetch-User: ?1
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+        method: GET
+        url: https://mubu.com/list
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - text/html;charset=UTF-8
+-   name: /api/list/tip_new_update
+    request:
+        data: ''
+        headers:
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: POST
+        url: https://mubu.com/api/list/tip_new_update
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - null
+-   name: /api/list/get
+    request:
+        data:
+            folderId: '0'
+            keywords: ''
+            sort: time
+            source: ''
+        headers:
+            Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: POST
+        url: https://mubu.com/api/list/get
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - null
+-   name: /api/message/get_message_unread
+    request:
+        data: ''
+        headers:
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: POST
+        url: https://mubu.com/api/message/get_message_unread
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - null
+-   name: /api/list/create_doc
+    request:
+        data:
+            folderId: '0'
+            type: '0'
+        headers:
+            Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: POST
+        url: https://mubu.com/api/list/create_doc
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - null
+-   name: /doc5wt4DDO1Yor
+    request:
+        headers:
+            Sec-Fetch-Mode: navigate
+            Sec-Fetch-Site: same-origin
+            Sec-Fetch-User: ?1
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+        method: GET
+        url: https://mubu.com/doc5wt4DDO1Yor
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - text/html;charset=UTF-8
+-   name: /api/document/get
+    request:
+        data:
+            docId: 5wt4DDO1Yor
+        headers:
+            Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: POST
+        url: https://mubu.com/api/document/get
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - Success
+-   name: /api/user/current_level
+    request:
+        data: ''
+        headers:
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: POST
+        params:
+            document_id: 5wt4DDO1Yor
+        url: https://mubu.com/api/user/current_level
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - Success
+-   name: /api/ticket/register
+    request:
+        headers:
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: GET
+        url: https://mubu.com/api/ticket/register
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - Success
+-   name: /api/middleware/members
+    request:
+        headers:
+            Request-Id: members:4838691:1572769003132
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        method: GET
+        params:
+            documentId: 5wt4DDO1Yor
+            memberId: '4838691'
+        url: https://mubu.com/api/middleware/members
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - success
+-   name: /api/middleware/message
+    request:
+        headers:
+            Content-Type: application/json; charset=UTF-8
+            Member-Id: '4838691'
+            Request-Id: MESSAGE:4725915:4838691:8
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        json:
+            context:
+                appVersion: '0'
+                os: macOS
+                osVersion: 10.14.0
+                platform: web
+            data:
+                message:
+                    content:
+                    -   name: nameChanged
+                        title: demo
+                    documentId: 5wt4DDO1Yor
+                    type: CHANGE
+                    version: 3
+            engineType: MUBU
+            messageType: BROADCAST
+            reqId: 8
+            requestId: MESSAGE:4725915:4838691:8
+            token: 5wt4DDO1Yor
+        method: POST
+        url: https://mubu.com/api/middleware/message
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - success
+-   name: /api/middleware/message
+    request:
+        headers:
+            Content-Type: application/json; charset=UTF-8
+            Member-Id: '4838691'
+            Request-Id: MESSAGE:4725915:4838691:10
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        json:
+            context:
+                appVersion: '0'
+                os: macOS
+                osVersion: 10.14.0
+                platform: web
+            data:
+                message:
+                    content:
+                    -   created:
+                        -   index: 0
+                            node:
+                                id: 12a16e30568e9502a
+                                modified: 1572769009301
+                                text: ''
+                            parentId: null
+                        name: create
+                    documentId: 5wt4DDO1Yor
+                    type: CHANGE
+                    version: 4
+            engineType: MUBU
+            messageType: BROADCAST
+            reqId: 10
+            requestId: MESSAGE:4725915:4838691:10
+            token: 5wt4DDO1Yor
+        method: POST
+        url: https://mubu.com/api/middleware/message
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - success
+-   name: /api/middleware/message
+    request:
+        headers:
+            Content-Type: application/json; charset=UTF-8
+            Member-Id: '4838691'
+            Request-Id: MESSAGE:4725915:4838691:20
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        json:
+            context:
+                appVersion: '0'
+                os: macOS
+                osVersion: 10.14.0
+                platform: web
+            data:
+                message:
+                    content:
+                    -   name: update
+                        updated:
+                        -   updated:
+                                id: 12a16e30568e9502a
+                                text: lian1
+                    documentId: 5wt4DDO1Yor
+                    type: CHANGE
+                    version: 9
+            engineType: MUBU
+            messageType: BROADCAST
+            reqId: 20
+            requestId: MESSAGE:4725915:4838691:20
+            token: 5wt4DDO1Yor
+        method: POST
+        url: https://mubu.com/api/middleware/message
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - success
+-   name: /api/middleware/message
+    request:
+        headers:
+            Content-Type: application/json; charset=UTF-8
+            Member-Id: '4838691'
+            Request-Id: MESSAGE:4725915:4838691:21
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        json:
+            context:
+                appVersion: '0'
+                os: macOS
+                osVersion: 10.14.0
+                platform: web
+            data:
+                message:
+                    content:
+                    -   created:
+                        -   index: 1
+                            node:
+                                id: f716e30569b78168
+                                modified: 1572769012600
+                                text: ''
+                            parentId: null
+                        cursor:
+                            id: 12a16e30568e9502a
+                            position:
+                                end: 0
+                                start: 0
+                        name: create
+                    documentId: 5wt4DDO1Yor
+                    type: CHANGE
+                    version: 10
+            engineType: MUBU
+            messageType: BROADCAST
+            reqId: 21
+            requestId: MESSAGE:4725915:4838691:21
+            token: 5wt4DDO1Yor
+        method: POST
+        url: https://mubu.com/api/middleware/message
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - success
+-   name: /api/middleware/message
+    request:
+        headers:
+            Content-Type: application/json; charset=UTF-8
+            Member-Id: '4838691'
+            Request-Id: MESSAGE:4725915:4838691:31
+            Sec-Fetch-Mode: cors
+            Sec-Fetch-Site: same-origin
+            User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+            X-Requested-With: XMLHttpRequest
+        json:
+            context:
+                appVersion: '0'
+                os: macOS
+                osVersion: 10.14.0
+                platform: web
+            data:
+                message:
+                    content:
+                    -   name: update
+                        updated:
+                        -   updated:
+                                id: f716e30569b78168
+                                text: lian2
+                    documentId: 5wt4DDO1Yor
+                    type: CHANGE
+                    version: 15
+            engineType: MUBU
+            messageType: BROADCAST
+            reqId: 31
+            requestId: MESSAGE:4725915:4838691:31
+            token: 5wt4DDO1Yor
+        method: POST
+        url: https://mubu.com/api/middleware/message
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.code
+        - 0
+    -   eq:
+        - content.msg
+        - success

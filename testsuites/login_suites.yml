@@ -1,0 +1,15 @@
+config:
+    name: login csv
+
+testcases:
+    testcase_name:
+        testcase: testcases/login.yml
+        parameters:
+            phone-password:
+                - ["18816966156","hua191011"]
+                - ["18816966156","hua1910116"]
+
+    testcase_name_csv:
+        testcase: testcases/login.yml
+        parameters:
+            phone-password: ${P(data/account.csv)}
